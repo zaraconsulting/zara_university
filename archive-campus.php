@@ -1,7 +1,7 @@
 <?php get_header(); 
     page_banner( array(
-        'title' => 'All Programs',
-        'subtitle' => 'There is something for everyone. Have a look around.'
+        'title' => 'Our Campuses',
+        'subtitle' => 'We have several conveniently located campuses.'
     ) );
     ?>
 
@@ -11,10 +11,13 @@
                 while(have_posts()) {
                     the_post(); ?>
                     <li>
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_title();
+                                $mapLocation = get_field('map_location');
+                            ?>
+                        </a>
                     </li>
                 <?php }
-                echo paginate_links();
             ?>
         </ul>
 
